@@ -5,19 +5,19 @@ A Dockerfile for Sonatype Nexus Repository Manager 3, based on CentOS 7.
 To run, binding the exposed port 8081 to the host.
 
 ```
-$ docker run -d -p 8081:8081 --name nexus parana/nexus3
+docker run -d -p 8081:8081 --name nexus parana/nexus3
 ```
 
 To test:
 
 ```
-$ curl -u admin:admin123 http://localhost:8081/service/metrics/ping
+curl -u admin:admin123 http://localhost:8081/service/metrics/ping
 ```
 
 To (re)build the image:
 
 ```
-$ docker build -t parana/nexus3 .
+docker build -t parana/nexus3 .
 ```
 
 
@@ -50,7 +50,7 @@ process, which runs as UID 200.
   These can be used supplied at runtime to control the JVM:
 
   ```
-  $ docker run -d -p 8081:8081 --name nexus -e JAVA_MAX_HEAP=768m parana/nexus3
+  docker run -d -p 8081:8081 --name nexus -e JAVA_MAX_HEAP=768m parana/nexus3
   ```
 
 
@@ -62,7 +62,7 @@ for additional information.
 
   1. *Use a data volume container*.  Since data volumes are persistent
   until no containers use them, a container can created specifically for 
-  this purpose.  This is the recommended approach.
+  this purpose.
 
   ```
   # docker run -d --name nexus-data parana/nexus3 echo "data-only container for Nexus"
