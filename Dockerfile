@@ -2,9 +2,9 @@ FROM parana/centos7
 
 # Based on centos:7.2.1511 Public Image
 
-MAINTAINER "João Antonio Ferreira" <joao.parana@gmail.com>`
+MAINTAINER "João Antonio Ferreira" <joao.parana@gmail.com>
 
-ENV REFRESHED_AT 2016-08-02
+ENV REFRESHED_AT 2016-08-12
 
 ENV NEXUS_DATA /nexus-data
 ENV NEXUS_VERSION 3.0.1-01
@@ -14,9 +14,7 @@ ENV JAVA_VERSION_MAJOR 8
 ENV JAVA_VERSION_MINOR 102
 ENV JAVA_VERSION_BUILD 14
 
-RUN yum install -y \
-  curl tar \
-  && yum clean all
+# RUN yum install -y curl tar && yum clean all
 
 # install Oracle JRE
 RUN mkdir -p /opt \

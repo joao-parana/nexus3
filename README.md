@@ -65,8 +65,14 @@ for additional information.
   this purpose.
 
   ```
-  # docker run -d --name nexus-data parana/nexus3 echo "data-only container for Nexus"
-  docker run -d -v /data --name nexus-data cogniteev/echo  echo "data-only container for Nexus"
+  docker run -v /data --name nexus-data cogniteev/echo  \
+         echo "data-only container for Nexus. To verify, execute: docker ps -a | nexus-data"
+  docker logs nexus-data
+  # you can save this container as a image using something like this:
+  docker commit -a "João Antonio Ferreira <joao.parana@gmail.com>" \
+         -m "Versão Inicial" \
+         nexus-data \
+         parana/nexus-data
   docker run -d -p 8081:8081 --name nexus --volumes-from nexus-data parana/nexus3
   ```
 
